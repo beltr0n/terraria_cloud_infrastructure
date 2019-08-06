@@ -41,7 +41,7 @@ resource "aws_instance" "terraria-dedicated" {
     subnet_id = "${aws_subnet.terraria-vpc-public-1.id}"
     instance_type = "t2.medium"
     key_name = "${aws_key_pair.terraria-admin.key_name}"
-    user_data = "${file("install-terraria.sh")}"
+    user_data = "${file("userdata.sh")}"
     security_groups = [
       "${aws_security_group.allow-ssh.id}",
       "${aws_security_group.allow-terraria.id}"
